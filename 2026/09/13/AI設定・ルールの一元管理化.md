@@ -3,28 +3,20 @@
 ## 【AI設定・ルールの一元管理化】
 ### Summary
 AIの各種設定やグローバルルールをドットファイル（`zsh_settings`）で一元管理する構成への移行と管理基盤の整備。
-
 ### Added
 - グローバルルール管理の導入（`.rules` ディレクトリへの分割配置）
-#### 内容要約
-environment_knowledge.md、language.md、safety_policy.md の新規作成。
-
+  - environment_knowledge.md、language.md、safety_policy.md の新規作成。
 ### Changed
 - `~/.gemini/config/skills` の `~/zsh_settings/.agents/skills` への移動・シンボリックリンク化
-#### 内容要約
-AI設定のGit一元管理化を目的とした実体ファイルの `~/zsh_settings` 側への配置変更。
+  - AI設定のGit一元管理化を目的とした実体ファイルの `~/zsh_settings` 側への配置変更。
 - `settings.json` 等の設定ファイルの `~/zsh_settings` 配下への集約
-#### 内容要約
-ドットファイルリポジトリでの設定管理に向けた、.gemini内設定の外出し構成への変更。
-
----
-
-## Retrospective
-### 振り返り（全体）
+  - ドットファイルリポジトリでの設定管理に向けた、.gemini内設定の外出し構成への変更。
+### Retrospective
+#### 振り返り（全体）
 AI設定の一元管理基盤の確立。ルールの分割管理により、今後の拡張性が担保された。
-### 懸念点（環境・プロジェクト）
+#### 懸念点（環境・プロジェクト）
 各種設定をシンボリックリンクで別管理にしたため、環境移行時にリンクの貼り忘れが起きる懸念。
-### 改善案（More Better）
+#### 改善案（More Better）
 環境構築の自動化: `Makefile` や `stow` を用いた設定ファイル群の紐付けスクリプト化による、別マシン展開時の完全自動化。
-### エージェント改善
+#### エージェント改善
 日報出力フォーマットの構造化および、体言止めルールの抽出・定着。
